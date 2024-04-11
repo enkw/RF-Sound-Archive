@@ -1,45 +1,60 @@
-// Wait for the document to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-  // Function to parse URL parameters
   function getSearchQuery() {
-    const urlParams = new URLSearchParams(window.location.search);
-    return urlParams.get('search') ? urlParams.get('search').toLowerCase() : '';
+      const urlParams = new URLSearchParams(window.location.search);
+      return urlParams.get('search') ? urlParams.get('search').toLowerCase() : '';
   }
 
-  // Assuming 'track_list' is defined and accessible here
   const searchQuery = getSearchQuery();
   const searchResults = document.getElementById('search-results');
+  let currentAudioPlayer; // Keep track of the current audio player
 
-  // Clear previous results
-  searchResults.innerHTML = '';
+  window.loadTrackFromResults = function (index) {
+      const track = results[index];
+      if (track && track.path) {
+          // Remove the previous audio player if it exists
+          if (currentAudioPlayer) {
+              currentAudioPlayer.remove();
+          }
 
-  // Filter the track list based on the search query
+          // Create a new audio player element
+          currentAudioPlayer = document.createElement('audio');
+          currentAudioPlayer.setAttribute('controls', 'controls');
+          currentAudioPlayer.style.width = '100%';
+          currentAudioPlayer.src = track.path;
+          currentAudioPlayer.play();
+
+          // Insert the audio player into the search results container
+          searchResults.appendChild(currentAudioPlayer);
+      } else {
+          console.error('Track source not found.');
+      }
+  };
+
+  const displayResults = () => {
+      searchResults.innerHTML = '';
+
+      if (results.length > 0) {
+          results.forEach((track, index) => {
+              let resultItem = document.createElement('div');
+              resultItem.className = 'search-result-item';
+              resultItem.innerHTML = `
+                  <div style="flex-grow: 1;">
+                      <strong>Track:</strong> ${track.name},
+                      <strong>Artist:</strong> ${track.artist}
+                  </div>
+                  <button onclick="loadTrackFromResults(${index});">Play</button>
+              `;
+              searchResults.appendChild(resultItem);
+          });
+      } else {
+          searchResults.innerHTML = '<div>No results found</div>';
+      }
+  };
+
+  // Assuming 'track_list' is accessible and defined here
   const results = track_list.filter(track =>
-    track.name.toLowerCase().includes(searchQuery) || track.artist.toLowerCase().includes(searchQuery)
+      track.name.toLowerCase().includes(searchQuery) || track.artist.toLowerCase().includes(searchQuery)
   );
 
-  // Display results
-  if (results.length > 0) {
-    results.forEach((track, index) => {
-      let resultItem = document.createElement('div');
-      resultItem.innerHTML = `<div class="search-result-item">Track: ${track.name}, Artist: ${track.artist} <button onclick="loadTrack(${index}); playTrack();">Play</button></div>`;
-      searchResults.appendChild(resultItem);
-    });
-  } else {
-    searchResults.innerHTML = '<div>No results found</div>';
-  }
-
-  // Function placeholders for `loadTrack` and `playTrack`, assuming these are defined elsewhere
-  window.loadTrack = function (index) {
-    // Implementation of loading the track by index from 'track_list'
-    console.log(`Loading track ${track_list[index].name}`);
-    // Additional functionality to set up the track for playing goes here
-  };
-
-  window.playTrack = function () {
-    // Implementation of playing the loaded track
-    console.log('Playing the loaded track');
-    // Additional functionality to control playback goes here
-  };
+  displayResults();
 });
-
