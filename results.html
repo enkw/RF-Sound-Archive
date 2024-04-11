@@ -1,20 +1,26 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="./public/css/results.css">
     <title>Search Results</title>
 </head>
-
 <body>
     <h1>RESULTS</h1>
-    <!-- Container where search results will be populated -->
-    <div id="search-results"></div>
+    <!-- Container grouping search results and the audio player -->
+    <div id="results-container">
+        <!-- Container where search results will be populated -->
+        <div id="search-results"></div>
+        
+        <!-- Audio player element -->
+        <audio id="audio-player" controls style="width: 100%; margin-top: 20px; display: none;">
+            Your browser does not support the audio element.
+        </audio>
+    </div>
 
-    <!-- Link to the results.js script file -->
+    <!-- Link to the JavaScript files -->
     <script src="player.js"></script>
     <script src="results.js"></script>
 </body>
-
 </html>
