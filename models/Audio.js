@@ -15,13 +15,9 @@ Audio.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        content: {
+        audiofile: {
           type: DataTypes.STRING,
-        },
-        date_created: {
-          type: DataTypes.DATE,
           allowNull: false,
-          defaultValue: DataTypes.NOW,
         },
         user_id: {
           type: DataTypes.INTEGER,

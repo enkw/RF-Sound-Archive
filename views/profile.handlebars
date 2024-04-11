@@ -1,0 +1,45 @@
+<div class="row">
+  <div class="col-auto">
+    <h2>Welcome, {{name}}!</h2>
+  </div>
+</div>
+<div class="row mt-4">
+  <div class="col-md-6">
+    <h3>Add an audio file:</h3>
+
+    <form class="form new-audio-form">
+      <div class="form-group">
+        <label for="audio-title">Title:</label>
+        <input class="form-input" type="text" id="audio-title" name="audio-title" />
+      </div>
+      <div class="form-group">
+        <label for="audio-audiofile">Upload File:</label>
+        <textarea class="form-input" id="audio-audiofile" name="audio-audiofile"></textarea>
+      </div>
+      <div class="form-group">
+        <button type="submit" class="btn btn-primary">POST</button>
+      </div>
+    </form>
+  </div>
+
+  {{#if audiofiles.length}}
+  <div class="col-md-6 blog-list">
+    <h3>My Audio:</h3>
+
+    {{#each audiofiles as |audiofile|}}
+    <div class="row mb-2">
+      <div class="col-md-8">
+        <h4>{{audio.title}}</h4>
+        <p>{{audio.audiofile}}</p>
+      </div>
+      <div class="col-md-4">
+        <button class="btn btn-sm btn-danger" data-id="{{blog.id}}">DELETE</button> 
+        </div>
+    </div>
+    </div>
+    {{/each}}
+  </div>
+  {{/if}}
+</div>
+
+<script src="./js/profile.js"></script>
