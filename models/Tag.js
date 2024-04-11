@@ -15,9 +15,6 @@ Tag.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        content: {
-          type: DataTypes.STRING,
-        },
         audio_id: {
           type: DataTypes.INTEGER,
           references: {
