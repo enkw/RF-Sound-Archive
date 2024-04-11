@@ -11,12 +11,12 @@ Audio.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Audio.hasMany(Tags, {
+Audio.hasMany(Tag, {
     foreignKey: 'audio_id',
     onDelete: 'CASCADE'
   });
   
-  Tags.belongsTo(Audio, {
+  Tag.belongsTo(Audio, {
     foreignKey: 'audio_id'
   });
 

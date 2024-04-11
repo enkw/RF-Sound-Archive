@@ -15,7 +15,7 @@ Audio.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        content: {
+        url: {
           type: DataTypes.STRING,
         },
         date_created: {
