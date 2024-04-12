@@ -1,0 +1,41 @@
+.search-result-item {
+    border: 1px solid #ccc;
+    padding: 10px;
+    margin-bottom: 5px;
+    background-color: #f9f9f9;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+  
+  .search-result-item button {
+    padding: 5px 10px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+  }
+  
+  .container {
+    display: flex;
+    /* margin: auto; */
+    max-width: 1200px; /* Adjust as necessary */
+  }
+  
+  .filter-sidebar {
+    flex: 1;
+    border-right: 1px solid #ccc; /* A line to separate from the main content */
+    padding: 20px;
+  }
+  
+  .results-main {
+    flex: 3; /* Takes up more space than the sidebar */
+    padding: 20px;
+  }
+  
+  .filter-category {
+    margin-bottom: 20px;
+  }
+
+  

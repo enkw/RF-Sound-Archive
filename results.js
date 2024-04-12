@@ -1,45 +1,69 @@
-// Wait for the document to be fully loaded
 document.addEventListener('DOMContentLoaded', function () {
-  // Function to parse URL parameters
+
+  let currentPlayingAudio = null; // Reference to currently playing audio
+
   function getSearchQuery() {
     const urlParams = new URLSearchParams(window.location.search);
     return urlParams.get('search') ? urlParams.get('search').toLowerCase() : '';
   }
 
-  // Assuming 'track_list' is defined and accessible here
-  const searchQuery = getSearchQuery();
-  const searchResults = document.getElementById('search-results');
-
-  // Clear previous results
-  searchResults.innerHTML = '';
-
-  // Filter the track list based on the search query
-  const results = track_list.filter(track =>
-    track.name.toLowerCase().includes(searchQuery) || track.artist.toLowerCase().includes(searchQuery)
-  );
-
-  // Display results
-  if (results.length > 0) {
-    results.forEach((track, index) => {
-      let resultItem = document.createElement('div');
-      resultItem.innerHTML = `<div class="search-result-item">Track: ${track.name}, Artist: ${track.artist} <button onclick="loadTrack(${index}); playTrack();">Play</button></div>`;
-      searchResults.appendChild(resultItem);
-    });
-  } else {
-    searchResults.innerHTML = '<div>No results found</div>';
+  function getSelectedMediaTypes() {
+    const checkboxes = document.querySelectorAll('input[name="media-type"]:checked');
+    return Array.from(checkboxes).map(cb => cb.value.toLowerCase());
   }
 
-  // Function placeholders for `loadTrack` and `playTrack`, assuming these are defined elsewhere
-  window.loadTrack = function (index) {
-    // Implementation of loading the track by index from 'track_list'
-    console.log(`Loading track ${track_list[index].name}`);
-    // Additional functionality to set up the track for playing goes here
-  };
+  function updateAndDisplayResults() {
+    const searchQuery = getSearchQuery();
+    const selectedMediaTypes = getSelectedMediaTypes();
+    const filteredResults = track_list.filter(track => {
+      const matchesType = !selectedMediaTypes.length || selectedMediaTypes.includes(track.type.toLowerCase());
+      const matchesQuery = !searchQuery || track.name.toLowerCase().includes(searchQuery) || track.artist.toLowerCase().includes(searchQuery);
+      return matchesType && matchesQuery;
+    });
+    displayResults(filteredResults);
+  }
 
-  window.playTrack = function () {
-    // Implementation of playing the loaded track
-    console.log('Playing the loaded track');
-    // Additional functionality to control playback goes here
-  };
+  function displayResults(filteredResults) {
+    const searchResults = document.getElementById('search-results');
+    searchResults.innerHTML = ''; // Clear existing results
+    if (filteredResults.length) {
+      filteredResults.forEach((track, index) => {
+        let resultItem = document.createElement('div');
+        resultItem.className = 'search-result-item';
+
+        let audioPlayer = document.createElement('audio');
+        audioPlayer.setAttribute('controls', 'controls');
+        audioPlayer.style.width = '100%';
+        audioPlayer.src = track.path;
+
+        // Add an event listener to ensure only one audio plays at a time
+        audioPlayer.onplay = function() {
+          if (currentPlayingAudio && currentPlayingAudio !== audioPlayer) {
+            currentPlayingAudio.pause();
+          }
+          currentPlayingAudio = audioPlayer;
+        };
+
+        let downloadLink = document.createElement('a');
+        downloadLink.href = track.path;
+        downloadLink.download = track.name;
+        downloadLink.textContent = 'Download';
+        downloadLink.style.display = 'block';
+
+        resultItem.innerHTML = `
+          <div style="flex-grow: 1;">
+            <strong>Track:</strong> ${track.name},
+            <strong>Artist:</strong> ${track.artist}
+          </div>
+        `;
+        resultItem.appendChild(audioPlayer);
+        searchResults.appendChild(resultItem);
+      });
+    } else {
+      searchResults.innerHTML = '<div>No results found</div>';
+    }
+  }
+
+  window.updateResults = updateAndDisplayResults;
+  updateAndDisplayResults();
 });
-

@@ -1,5 +1,5 @@
-const User = require('./user');
-const Audio = require('./audio');
+const User = require('./User');
+const Audio = require('./Audio');
 const Tag = require('./Tag');
 
 User.hasMany(Audio, {

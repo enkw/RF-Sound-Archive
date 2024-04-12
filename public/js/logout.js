@@ -1,13 +1,14 @@
-// Function to handle user logout
-async function logoutUser() {
-    try {
-        // Logout functionality (clear session data and redirect to the login page)
-        console.log('User logged out successfully');
-        // Redirect to the login page
-    } catch (error) {
-        console.error('Error logging out:', error.message);
+const logout = async () => {
+    const response = await fetch('/api/users/logout', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+    });
+  
+    if (response.ok) {
+      document.location.replace('/');
+    } else {
+      alert(response.statusText);
     }
-}
-
-// Usage of logoutUser function
-logoutUser();
+  };
+  
+  document.querySelector('#logout').addEventListener('click', logout);
