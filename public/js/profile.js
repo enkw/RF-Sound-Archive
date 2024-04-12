@@ -18,3 +18,5 @@ async function displayUserProfile(userId) {
 
 // Usage of displayUserProfile function
 displayUserProfile(123); // Pass the user's ID as an argument
+  
+  
