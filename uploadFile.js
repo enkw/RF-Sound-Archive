@@ -4,6 +4,7 @@ const express = require('express');
 const multer = require('multer');
 // Required variables for the AWS-SDK, helps with handling the upload request to our S3 server
 const AWS = require('aws-sdk');
+const uuid = require('uuid');
 // Pulls the Access ID and the Secret ID from our .env file
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -26,11 +27,11 @@ const fileFilter = (req, file, cb) => {
 const storage = multer.memoryStorage();
 // Sets the upload parameters of multer, telling it what storage to use, what filter to use, and the 
 // file size limits. All parameters MUST be declared before declaring this variable
-const upload = multer ({ 
+const upload = multer({
     storage: storage,
     fileFilter: fileFilter,
     limits: { fileSize: 1024 * 1024 * 100 } // This should limit file size of uploads to 100mb
- });
+});
 
 // Temp path used for testing
 app.get('/', (req, res) => {
@@ -41,9 +42,10 @@ app.get('/', (req, res) => {
 app.post('/upload', upload.single('file'), async (req, res) => {
     const file = req.file;
 
+    const uniqueName = uuid.v4();
     const params = {
         Bucket: 'enkwbucket',
-        Key: file.originalname,
+        Key: `${uniqueName}${path.extname(file.originalname)}`,
         Body: file.buffer,
         ContentType: file.mimetype
     };
@@ -58,4 +60,4 @@ app.post('/upload', upload.single('file'), async (req, res) => {
 });
 
 // App listener
-app.listen(3001, () => console.log ('App is listening...'));
+app.listen(3001, () => console.log('App is listening...'));
