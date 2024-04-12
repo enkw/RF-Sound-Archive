@@ -6,6 +6,8 @@ const multer = require('multer');
 const AWS = require('aws-sdk');
 const uuid = require('uuid');
 const { Pool } = require('pg');
+const router = require('express').Router();
+const Audio = require('./models/Audio');
 // Pulls the Access ID and the Secret ID from our .env file
 const s3 = new AWS.S3({
     accessKeyId: process.env.AWS_ACCESS_KEY_ID,
@@ -13,6 +15,8 @@ const s3 = new AWS.S3({
 });
 
 const app = express();
+app.use(express.json());
+app.use(express.urlencoded({ extended: true }));
 
 // Filter to ensure user is only able to upload files associated with audio content type
 const fileFilter = (req, file, cb) => {
@@ -65,18 +69,51 @@ app.post('/upload', upload.single('file'), async (req, res) => {
         // Uploades the file to S3 using the params above
         await s3.upload(params).promise();
         // Saves the file name to our PG db I hope
-        const client = await pool.connect();
-        const queryText = 'INSERT INTO audio (url) VALUES ($1)';
-        const values = [uniqueName];
-        await client.query(queryText, values);
-        client.release(); // Are this and the .connect needed?
-
-        res.status(200).send('File uploaded to S3 and saved to db successfully!');
+        try {
+            const fileData = await Audio.create({
+                title: req.body.title,
+                description: req.body.description,
+                url: uniqueName,
+                user_id: req.body.user_id,
+            });
+            res.status(200).json(fileData);
+        } catch (err) {
+            res.status(400).json(err);
+        }
     } catch (error) {
         console.error(error);
         res.status(500).send('Error uploading file');
     }
 });
 
+// Seed route for the audio
+router.post('/seed', (req, res) => {
+    Audio.bulkCreate([
+        {
+            title: 'Curb Your Enthusiasm',
+            description: 'Theme song',
+            url: 'b7a2fcbf-7daa-4a9c-b45e-2d639b5e127a.mp3',
+            date_created: '04/12/24',
+            user_id: 1
+        },
+        {
+            title: 'Redbone',
+            description: 'But Carl Wheezer',
+            url: 'c385ba9f-1a62-4aeb-bf09-a25d225fb59d.mp3',
+            date_created: '04/12/24',
+            user_id: 1
+        },
+        {
+            title: 'Saturn Bomberman No.1 Funky Breakbeat Remix',
+            description: 'Probably not actually royalty free knowing Konami',
+            url: 'e189f2b5-e771-4cda-80d2-d987b3127a60.mp3',
+            date_created: '04/12/24',
+            user_id: 1
+        },
+    ])
+})
+
 // App listener
 app.listen(3001, () => console.log('App is listening...'));
+
+module.exports = router;

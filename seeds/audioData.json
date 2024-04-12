@@ -1,16 +1,19 @@
 [
     {
       "title": "Curbd",
+      "description": "Title theme",
       "url": "https://enkwbucket.s3.us-east-2.amazonaws.com/curbd.mp3",
       "user_id": "1"
     },
     {
       "title": "Redbone",
+      "description": "But by Carl Wheezer",
       "url": "https://enkwbucket.s3.us-east-2.amazonaws.com/redbone.mp3",
       "user_id": "1"
     },
     {
       "title": "Super Bomberman",
+      "description": "Knowing Konami, not actually royalty free",
       "url": "https://enkwbucket.s3.us-east-2.amazonaws.com/saturn_bomberman.mp3",
       "user_id": "1"
     }
