@@ -17,3 +17,23 @@
     cursor: pointer;
   }
   
+  .container {
+    display: flex;
+    /* margin: auto; */
+    max-width: 1200px; /* Adjust as necessary */
+  }
+  
+  .filter-sidebar {
+    flex: 1;
+    border-right: 1px solid #ccc; /* A line to separate from the main content */
+    padding: 20px;
+  }
+  
+  .results-main {
+    flex: 3; /* Takes up more space than the sidebar */
+    padding: 20px;
+  }
+  
+  .filter-category {
+    margin-bottom: 20px;
+  }

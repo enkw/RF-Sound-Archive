@@ -7,20 +7,43 @@
     <title>Search Results</title>
 </head>
 <body>
-    <h1>RESULTS</h1>
-    <!-- Container grouping search results and the audio player -->
-    <div id="results-container">
-        <!-- Container where search results will be populated -->
-        <div id="search-results"></div>
-        
-        <!-- Audio player element -->
-        <audio id="audio-player" controls style="width: 100%; margin-top: 20px; display: none;">
-            Your browser does not support the audio element.
-        </audio>
+
+    <div class="container">
+        <!-- Filter sidebar starts here -->
+        <aside class="filter-sidebar">
+            <h2>Filters</h2>
+            <div class="filter-category">
+                <h3>Media Type</h3>
+                <!-- Use onchange to update results immediately when a checkbox state changes -->
+                <input type="checkbox" id="filter-music" name="media-type" value="music" onchange="updateResults();">
+                <label for="filter-music">Music</label><br>
+                <input type="checkbox" id="filter-sound-effect" name="media-type" value="sound effect" onchange="updateResults();">
+                <label for="filter-sound-effect">Sound Effects</label>
+            </div>
+            <!-- Additional filter categories can be added here -->
+        </aside>
+        <!-- Filter sidebar ends here -->
+
+        <!-- Main content starts here -->
+        <main class="results-main">
+            <h1>RESULTS</h1>
+            <!-- Container grouping search results and the audio player -->
+            <div id="results-container">
+                <!-- Container where search results will be populated -->
+                <div id="search-results"></div>
+                
+                <!-- Audio player element -->
+                <audio id="audio-player" controls style="width: 100%; margin-top: 20px; display: none;">
+                    Your browser does not support the audio element.
+                </audio>
+            </div>
+        </main>
+        <!-- Main content ends here -->
     </div>
 
     <!-- Link to the JavaScript files -->
     <script src="player.js"></script>
     <script src="results.js"></script>
+    <!-- Ensure results.js contains the updateResults and getSelectedMediaTypes functions -->
 </body>
 </html>
