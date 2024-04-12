@@ -24,7 +24,8 @@ let updateTimer;
 let curr_track = document.createElement('audio');
 
 // Define the list of tracks that have to be played
-// this is local, must be replaced with database entries
+// this is local!!! 
+// will be an empty array, populated by the database
 let track_list = [
     {
         name: "Uno",
@@ -57,6 +58,8 @@ let track_list = [
         path: "https://enkwbucket.s3.us-east-2.amazonaws.com/curbd.mp3",
     },
 ];
+
+
 
 function loadTrack(track_index) {
     // Clear the previous seek timer
