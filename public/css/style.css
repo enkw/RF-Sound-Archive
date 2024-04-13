@@ -1,48 +1,39 @@
-/* Updated .player style */
 body, html {
   height: 100%;
   margin: 0;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
 }
 
-.upload-button-container {
-  position: fixed;
-  top: 1%;
-  right: 5%;
+/* Additional styling for the navbar for better aesthetics */
+.navbar {
+  background-color: #f8f9fa; /* Light grey, you can change this */
+  box-shadow: 0 4px 6px rgba(0,0,0,.1);
 }
 
-.login-button-container {
-  position: fixed;
-  top: 1%;
-  right: 0;
-}
-.search-container {
-  padding-top: 20%;
-  text-align: center;
-  margin-bottom: 20px;
+.nav-link {
+  margin-right: 10px; /* Space between nav items */
 }
 
-#search-results {
-  width: 80%; /* Responsive width */
-  margin: auto;
-  text-align: center;
+.form-control {
+  min-width: 250px; /* Minimum width of the search bar */
 }
 
-/* responsive media query */
-/* @media (max-width: 600px) {
-  #search-results {
-      width: 95%; /* More width on smaller screens
-  } */
+/* Adjusting form in the navbar to center the search bar */
+@media (min-width: 992px) { /* Adjusting for large devices */
+  .navbar .container-fluid {
+    display: flex;
+    justify-content: space-between; 
+  }
+  .navbar-collapse {
+    flex-grow: 0;
+  }
+}
 
 .player {
-    height: auto; /* Changed from 95vh to auto to fit content */
-    width: 80%; /* Adjust width as needed */
-    max-width: 600px; /* Maximum width */
-    margin: auto; /* For horizontal centering */
-    padding: 20px; /* Padding inside the .player */
+    height: auto; 
+    width: 80%; 
+    max-width: 600px; 
+    margin: auto; 
+    padding: 20px; 
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -52,9 +43,9 @@ body, html {
     left: 50%;
     transform: translate(-50%, -50%); /* Center the player */
     border: 1px solid #000; /* Thin border */
-    background-color: #fff; /* Optional: change the background */
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Optional: add shadow for depth */
-    border-radius: 10px; /* Optional: rounded corners */
+    background-color: #fff;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+    border-radius: 10px; 
     /* Smoothly transition the background color */
     transition: background-color 0.5s;
   }
@@ -187,3 +178,17 @@ i.fa-step-forward,
 i.fa-step-backward {
   cursor: pointer;
 }
+
+footer.navbar {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  border-top: 1px solid rgba(0,0,0,.1);
+  box-shadow: 0px -4px 6px rgba(0,0,0,.1);
+}
+
+footer .container-fluid {
+  display: flex;
+  justify-content: space-between; 
+}
+

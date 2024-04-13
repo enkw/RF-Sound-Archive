@@ -1,41 +1,45 @@
-.search-result-item {
-    border: 1px solid #ccc;
-    padding: 10px;
-    margin-bottom: 5px;
-    background-color: #f9f9f9;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-  
-  .search-result-item button {
-    padding: 5px 10px;
-    background-color: #4CAF50;
-    color: white;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-  }
-  
-  .container {
-    display: flex;
-    /* margin: auto; */
-    max-width: 1200px; /* Adjust as necessary */
-  }
-  
-  .filter-sidebar {
-    flex: 1;
-    border-right: 1px solid #ccc; /* A line to separate from the main content */
-    padding: 20px;
-  }
-  
-  .results-main {
-    flex: 3; /* Takes up more space than the sidebar */
-    padding: 20px;
-  }
-  
-  .filter-category {
-    margin-bottom: 20px;
-  }
+/* Specific styles for results page layout and components */
+.container {
+  display: flex;
+  flex-direction: row;
+  /* max-width: 1200px; */
+  margin: 20px 20px;
+  height: 100%; /* Full viewport height */
+}
 
-  
+.filter-sidebar {
+  flex: 0 0 200px;
+  border-right: 1px solid #ccc;
+  padding: 20px;
+  height: 100%;
+}
+
+.results-main {
+  flex: 3;
+  padding: 20px;
+}
+
+.search-result-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.search-result-item button {
+  padding: 5px 10px;
+  background-color: #4CAF50;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+@media (min-width: 768px) {
+  .container {
+    flex-direction: row; /* Side-by-side layout on larger screens */
+  }
+}
