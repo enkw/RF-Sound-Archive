@@ -1,16 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-  <!-- {{!-- https://www.geeksforgeeks.org/create-a-music-player-using-javascript/ --}} -->
-  <title>Music database player</title>
-  <!-- Load FontAwesome icons -->
+  <title>Music Database Player</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css">
-  <!-- Load the custom CSS style file -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" type="text/css" href="./public/css/style.css">
 </head>
 <body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid justify-content-between">
+      <!-- Logo or Branding -->
+      <a class="navbar-brand" href="index.html">MusicPlayer</a>
+      <!-- Toggler for mobile view -->
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent" aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <!-- Navbar content with search centered -->
+      <div class="collapse navbar-collapse" id="navbarContent">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="login.html">Login</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Upload</a>
+          </li>
+        </ul>
+        <form class="d-flex" id="searchForm">
+          <input class="form-control me-2" type="search" placeholder="Search audio..." aria-label="Search" name="query" id="search-bar">
+          <button type="button" class="btn btn-outline-success" onclick="searchTracks()">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
 
+
+<!-- Player and other content -->
 <!-- Navigation bar -->
 <nav>
   <ul>
@@ -27,17 +52,14 @@
 
   <!-- player -->
   <div class="player">
-    <!-- Define the section for displaying details -->
+    <!-- Displaying details -->
     <div class="details">
-      <!-- this portion of html will state the current track number out of the total, which is y -->
-      <!-- <div class="now-playing">PLAYING x OF y</div> -->
       <div class="track-art"></div>
       <div class="track-name">Track Name</div>
       <div class="track-artist">Track Artist</div>
-      
     </div>
 
-    <!-- Define the section for displaying track buttons -->
+    <!-- Displaying track buttons -->
     <div class="buttons">
       <div class="prev-track" onclick="prevTrack()">
         <i class="fa fa-step-backward fa-2x"></i>
@@ -50,14 +72,14 @@
       </div>
     </div>
 
-    <!-- Define the section for displaying the seek slider-->
+    <!-- Seek slider -->
     <div class="slider_container">
       <div class="current-time">00:00</div>
       <input type="range" min="1" max="100" value="0" class="seek_slider" onchange="seekTo()">
       <div class="total-duration">00:00</div>
     </div>
 
-    <!-- Define the section for displaying the volume slider-->
+    <!-- Volume slider -->
     <div class="slider_container">
       <i class="fa fa-volume-down"></i>
       <input type="range" min="1" max="100" value="99" class="volume_slider" onchange="setVolume()">
@@ -65,7 +87,24 @@
     </div>
   </div>
 
+  <!-- Footer -->
+<footer class="navbar navbar-expand-lg navbar-light bg-light mt-5">
+  <div class="container-fluid justify-content-center">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" href="#contact">Contact</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#about">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#contributing">Contributing</a>
+      </li>
+    </ul>
+  </div>
+</footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script src="player.js"></script>
 </body>
-
 </html>

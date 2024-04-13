@@ -55,7 +55,7 @@ let track_list = [
         type: "music",
         image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
         // amazon s3 server link test
-        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/curbd.mp3",
+        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/b7a2fcbf-7daa-4a9c-b45e-2d639b5e127a.mp3",
     },
 ];
 
@@ -108,11 +108,17 @@ function random_bg_color() {
 // search function
 function searchTracks() {
     // Get the search query from the input field
-    let searchQuery = document.getElementById('search-bar').value;
-
-    // Redirect to the results.html page with the search query appended as a URL parameter
-    window.location.href = `results.html?search=${encodeURIComponent(searchQuery)}`;
-}
+    let searchQuery = document.getElementById('search-bar').value.trim();
+  
+    // Check if the search query is not empty
+    if (searchQuery) {
+      // Redirect to the results.html page with the search query appended as a URL parameter
+      window.location.href = `results.html?search=${encodeURIComponent(searchQuery)}`;
+    } else {
+      // Optionally alert the user that the search query cannot be empty
+      alert("Please enter a search term.");
+    }
+  }
 
 
 // Function to reset all values to their default
