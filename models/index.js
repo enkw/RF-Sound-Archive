@@ -1,5 +1,5 @@
-const User = require('./user');
-const Audio = require('./audio');
+const User = require('./User');
+const Audio = require('./Audio');
 const Tag = require('./Tag');
 
 User.hasMany(Audio, {
@@ -11,12 +11,12 @@ Audio.belongsTo(User, {
   foreignKey: 'user_id'
 });
 
-Audio.hasMany(Tags, {
+Audio.hasMany(Tag, {
     foreignKey: 'audio_id',
     onDelete: 'CASCADE'
   });
   
-  Tags.belongsTo(Audio, {
+  Tag.belongsTo(Audio, {
     foreignKey: 'audio_id'
   });
 
