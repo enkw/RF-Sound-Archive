@@ -28,33 +28,58 @@ body, html {
   }
 }
 
+.image-banner {
+  background-size: cover; /* Cover the entire banner area */
+  background-position: center; /* Center the image */
+  text-align: center; /* Center the text inside the banner */
+  padding: 40px 0px; /* Top and bottom padding */
+  width: 100%; /* Banner width to cover the full container width */
+  position: relative; /* Relative positioning to keep flow in document */
+}
+
+
 .player {
-    height: auto; 
-    width: 80%; 
-    max-width: 600px; 
-    margin: auto; 
-    padding: 20px; 
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    position: fixed;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%); /* Center the player */
-    border: 1px solid #000; /* Thin border */
-    background-color: #fff;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
-    border-radius: 10px; 
-    /* Smoothly transition the background color */
-    transition: background-color 0.5s;
+  height: auto;
+  width: 80%; /* Adjust the width to your preference */
+  max-width: 600px; /* Maximum width of the player */
+  margin: 5% auto 20px auto; /* Top margin and auto for horizontal centering */
+  padding: 10px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  /* position: fixed; */
+  /* top: 50%; */
+  /* left: 50%; */
+  /* transform: translate(-50%, -50%); */
+  border: 1px solid #000;
+  background-color: #fff;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  transition: background-color 0.5s;
+}
+
+/* Ensure that the player is not too small on very large screens */
+@media (min-width: 1200px) {
+  .player {
+    width: 50%; /* Adjust the percentage as needed */
   }
+}
 
-  /* .player:hover {
-    background-color: lightgreen; /* Change the color as needed 
-  } */
+/* Adjust for medium screens */
+@media (max-width: 992px) {
+  .player {
+    width: 90%;
+  }
+}
 
-/* Remaining CSS styles unchanged */
+/* Adjust for small screens */
+@media (max-width: 768px) {
+  .player {
+    width: 95%;
+  }
+}
+
 .details {
   display: flex;
   align-items: center;
@@ -186,6 +211,49 @@ footer.navbar {
   border-top: 1px solid rgba(0,0,0,.1);
   box-shadow: 0px -4px 6px rgba(0,0,0,.1);
 }
+
+/* Style for "Browse by Vibe" Section */
+.browse-by-vibe {
+  text-align: center;
+  padding: 100px 0;
+  /* background-color: #f2f2f2; Light grey background for the section */
+  margin-top: 50px; /* Add some space between the player and the section */
+}
+
+.browse-by-vibe h2 {
+  margin-bottom: 20px; /* Space between title and boxes */
+}
+
+.vibe-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px; /* Space between boxes */
+  width: calc((150px * 4) + (10px * 3)); /* Width for 4 boxes plus 3 gaps */
+  margin: auto; /* Center the container */
+}
+
+.vibe-box {
+  flex: 0 1 150px; /* Boxes are 150px wide but can shrink a bit */
+  height: 100px; /* Height of the boxes */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white; /* Text color */
+  border-radius: 5px; /* Rounded corners */
+  font-size: 18px; /* Font size of the box content */
+  margin-bottom: 10px; /* Add bottom margin to ensure gap between rows */
+}
+
+/* Individual box colors */
+#vibe-chill { background-color: #85C1E9; }
+#vibe-noise { background-color: #ff8ae8; }
+#vibe-energetic { background-color: #E74C3C; }
+#vibe-melancholic { background-color: #5D6D7E; }
+#vibe-upbeat { background-color: #F4D03F; }
+#vibe-goblin { background-color: #71ff04; }
+#vibe-feelings { background-color: #26f9f6; }
+#vibe-romance { background-color: #ff0040; }
 
 footer .container-fluid {
   display: flex;
