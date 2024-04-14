@@ -10,30 +10,13 @@
 </head>
 
 <body>
-    <div class="flex-column justify-space-around">
-    <header class="display-flex justify-space-between align-center p-2">
-        <h1>Welcome to the Music Database</h1>
-        <nav>
-        </nav>
-        </header>
-        <main class="container container-fluid mt-5">
+    <main class="container container-fluid mt-5">
       <!-- Render the sub layout -->
       {{{ body }}}
     </main>
   </div>
-            <!-- Conditionally render login or logout links -->
-        {{#if logged_in}}
-        <a href="/"></a>
-        <button class="btn btn-primary" id="logout">logout</button>
-        {{else}}
-        <a href="/login"></a>
-        {{/if}}
 
-    <footer>
-        {{!-- <p> Do we implement something of copyright </p> --}}
-    </footer>
-
- <!-- Render script for logged in users only -->
+  <!-- Render script for logged in users only -->
   {{#if logged_in}}
   <script src="/js/logout.js"></script>
   {{/if}}

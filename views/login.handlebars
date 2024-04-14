@@ -1,42 +1,24 @@
-<div class="row">
-  <div class="col-md-6">
-    <h2>Login</h2>
+  <link rel="stylesheet" href="/css/login.css">
 
-    <form class="form login-form">
-      <div class="form-group">
-        <label for="email-login">email:</label>
-        <input class="form-input" type="text" id="email-login" />
-      </div>
-      <div class="form-group">
-        <label for="password-login">password:</label>
-        <input class="form-input" type="password" id="password-login" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">login</button>
-      </div>
-    </form>
-  </div>
-  <div class="col-md-6">
-    <h2>Signup</h2>
+  <input type="radio" checked id="toggle--login" name="toggle" class="ghost" />
+  <input type="radio" id="toggle--signup" name="toggle" class="ghost" />
 
-    <form class="form signup-form">
-      <div class="form-group">
-        <label for="name-signup">name:</label>
-        <input class="form-input" type="text" id="name-signup" />
-      </div>
-      <div class="form-group">
-        <label for="email-signup">email:</label>
-        <input class="form-input" type="text" id="email-signup" />
-      </div>
-      <div class="form-group">
-        <label for="password-signup">password:</label>
-        <input class="form-input" type="password" id="password-signup" />
-      </div>
-      <div class="form-group">
-        <button class="btn btn-primary" type="submit">signup</button>
-      </div>
-    </form>
-  </div>
-</div>
+
+  <form class="form login-form framed">
+    <input type="email" placeholder="Email" class="input input--top" id="email-login"/>
+    <input type="password" placeholder="Password" class="input" id="password-login" />
+    <input type="submit" value="Log in" class="input input--submit" />
+    
+    <label for="toggle--signup" class="text text--small text--centered">New? <b>Sign up</b></label>
+  </form>
+
+  <form class="form signup-form form--signup framed">
+    <input type="name" placeholder="Username" class="input" id="name-signup"/>
+    <input type="email" placeholder="Email" class="input input--top" id="email-signup"/>
+    <input type="password" placeholder="Password" class="input" id="password-signup"/>
+    <input type="submit" value="Sign up" class="input input--submit" />
+    
+    <label for="toggle--login" class="text text--small text--centered">Not new? <b>Log in</b></label>
+  </form>
 
 <script src="./js/login.js"></script>
