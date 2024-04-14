@@ -16,6 +16,12 @@ router.post('/', withAuth, async (req, res) => {
   }
 });
 
+router.get('/:id', (req, res) => {
+  Audio.findByPk(req.params.id).then((audioData) => {
+    res.json(audioData);
+  });
+});
+
 router.delete('/:id', withAuth, async (req, res) => {
   try {
     const audioData = await Audio.destroy({

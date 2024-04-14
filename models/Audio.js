@@ -15,7 +15,11 @@ Audio.init(
           type: DataTypes.STRING,
           allowNull: false,
         },
-        audiofile: {
+        description: {
+          type: DataTypes.STRING,
+          allowNull: true,
+        },
+        url: {
           type: DataTypes.STRING,
           allowNull: false,
         },
