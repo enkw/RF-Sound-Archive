@@ -28,28 +28,6 @@ let curr_track = document.createElement('audio');
 // will be an empty array, populated by the database
 let track_list = [
     {
-        name: "Uno",
-        artist: "Piano Girl 69",
-        type: "music", // Specifying the type of media
-        // image for container
-        image: "https://cityave.org/wp-content/uploads/2020/07/hgRu36yguybcDeZLsZybEA-1200-80-1024x576.jpg",
-        path: "Uno.mp3"
-    },
-    {
-        name: "Walkie talkie static",
-        artist: "Audio FX",
-        type: "sound effect",
-        image: "https://cdn.imgbin.com/3/18/8/imgbin-20-fenchurch-walkie-talkie-cartoon-radio-radio-XqW5ji9sxey1c45SGXKeCngaK.jpg",
-        path: "walkie-talkie-receiver-static-noise.mp3"
-    },
-    {
-        name: "June 26",
-        artist: "Granny loves to play",
-        type: "music",
-        image: "https://thumbs.dreamstime.com/b/sad-lonely-pensive-old-senior-woman-12781694.jpg",
-        path: "June 26.mp3",
-    },
-    {
         name: "TEST",
         artist: "TEST",
         type: "music",
