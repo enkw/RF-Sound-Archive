@@ -21,7 +21,7 @@ const loginFormHandler = async (event) => {
       }
     }
   };
-  
+  // User signup form 
   const signupFormHandler = async (event) => {
     event.preventDefault();
   
