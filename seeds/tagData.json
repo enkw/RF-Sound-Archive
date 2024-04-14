@@ -1,18 +1,47 @@
 [
     {
-      "name": "Music",
-      "conent": "Music of various genres",
+      "name": "Ambient",
       "audio_id": "1"
     },
     {
-      "name": "Sound Effect",
-      "content": "Sound effects for your everyday need",
+      "name": "Instrumental",
       "audio_id": "2"
     },
     {
-      "name": "Ambient Noise",
-      "content": "Natural and unnatural ambient sounds",
+      "name": "Interview",
       "audio_id": "3"
+    },
+    {
+      "name": "Music",
+      "audio_id": "4"
+    },
+    {
+      "name": "Narration",
+      "audio_id": "5"
+    },
+    {
+      "name": "Nature",
+      "audio_id": "6"
+    },
+    {
+      "name": "Noise",
+      "audio_id": "7"
+    },
+    {
+      "name": "Podcast",
+      "audio_id": "8"
+    },
+    {
+      "name": "Sound Effect",
+      "audio_id": "9"
+    },
+    {
+      "name": "Speech",
+      "audio_id": "10"
+    },
+    {
+      "name": "Vocal",
+      "audio_id": "11"
     }
   ]
   
