@@ -28,13 +28,48 @@ let curr_track = document.createElement('audio');
 // will be an empty array, populated by the database
 let track_list = [
     {
-        name: "TEST",
+        name: "Curb",
         artist: "TEST",
-        type: "music",
+        type: "Music",
         image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
-        // amazon s3 server link test
         path: "https://enkwbucket.s3.us-east-2.amazonaws.com/b7a2fcbf-7daa-4a9c-b45e-2d639b5e127a.mp3",
     },
+    {
+        name: "Error Sound",
+        artist: "TEST",
+        type: "Sound Effect",
+        image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/42ab0eae-f165-41b7-955b-f69cfcb55850.mp3",
+    },
+    {
+        name: "Price is Wrong",
+        artist: "TEST",
+        type: "Sound Effect",
+        image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/59859edd-77cc-42e9-b0e6-c39cba27bdd9.mp3",
+    },
+    {
+        name: "Redbone",
+        artist: "TEST",
+        type: "Music",
+        image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/c385ba9f-1a62-4aeb-bf09-a25d225fb59d.mp3",
+    },
+    {
+        name: "Homie",
+        artist: "TEST",
+        type: "Speech",
+        image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/a56ad936-cb7e-4f7b-b142-1d86279ab66f.mp3",
+    },
+    {
+        name: "Super Bomberman Remix",
+        artist: "TEST",
+        type: "Music",
+        image: "https://m.media-amazon.com/images/I/714dBOmEXiL.__AC_SY300_SX300_QL70_FMwebp_.jpg",
+        path: "https://enkwbucket.s3.us-east-2.amazonaws.com/e189f2b5-e771-4cda-80d2-d987b3127a60.mp3",
+    },
+    
 ];
 
 
