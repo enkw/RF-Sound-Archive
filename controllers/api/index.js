@@ -4,7 +4,7 @@ const audioRoutes = require('./audioRoutes');
 const uploadRoutes = require('./uploadRoutes');
 
 router.use('/users', userRoutes);
-router.use('/audiofiles', audioRoutes);
+router.use('/audio', audioRoutes);
 router.use('/upload', uploadRoutes);
 
 module.exports = router;

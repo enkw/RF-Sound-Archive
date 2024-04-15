@@ -22,24 +22,26 @@ router.get('/:id', (req, res) => {
   });
 });
 
-router.delete('/:id', withAuth, async (req, res) => {
-  try {
-    const audioData = await Audio.destroy({
-      where: {
-        id: req.params.id,
-        user_id: req.session.user_id,
-      },
-    });
+// Commenting out for now, we're going to leave out the ability to allow users to delete audio until I can figure
+// out how make that work with S3 better.
+// router.delete('/:id', withAuth, async (req, res) => {
+//   try {
+//     const audioData = await Audio.destroy({
+//       where: {
+//         id: req.params.id,
+//         user_id: req.session.user_id,
+//       },
+//     });
 
-    if (!audioData) {
-      res.status(404).json({ message: 'No audio found with this id!' });
-      return;
-    }
+//     if (!audioData) {
+//       res.status(404).json({ message: 'No audio found with this id!' });
+//       return;
+//     }
 
-    res.status(200).json(audioData);
-  } catch (err) {
-    res.status(500).json(err);
-  }
-});
+//     res.status(200).json(audioData);
+//   } catch (err) {
+//     res.status(500).json(err);
+//   }
+// });
 
 module.exports = router;
