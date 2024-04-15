@@ -1,23 +1,27 @@
-    <h1>File Upload</h1>
-    <form action="/upload" method="POST" enctype="multipart/form-data">
-        <label for="title">Title</label><br>
-        <input type="text" id="title" name="title" required><br><br>
-        <label for="desc">Description</label><br>
-        <input type="text" id="desc" name="description" required><br><br>
-        <label for="tags">Tag/Genre</label>
-        <select name="tags" id="tags">
-            <option value="ambient" name="ambient">Ambient</option>
-            <option value="instrumental" name="instrumental">Instrumental</option>
-            <option value="interview" name="interview">Interview</option>
-            <option value="music" name="music">Music</option>
-            <option value="narration" name="narration">Narration</option>
-            <option value="nature" name="nature">Nature</option>
-            <option value="noise" name="noise">Noise</option>
-            <option value="podcast" name="podcast">Podcast</option>
-            <option value="sound-effect" name="sound-effect">Sound Effect</option>
-            <option value="speech" name="speech">Speech</option>
-            <option value="vocal" name="vocal">Vocal</option>
-        </select><br><br>
-        <input type="file" name="file" required><br><br>
-        <button type="submit">Upload</button>
-    </form>
+<head>
+    <link rel="stylesheet" type="text/css" href="./css/login.css">
+</head>
+
+<h1>File Upload</h1>
+<form action="/upload" method="POST" enctype="multipart/form-data">
+    <label for="title">Title</label><br>
+    <input type="text" id="title" name="title" required><br><br>
+    <label for="desc">Description</label><br>
+    <input type="text" id="desc" name="description" required><br><br>
+    <label for="tags">Tag/Genre</label>
+    <select name="tags" id="tags">
+        <option value="ambient" name="ambient">Ambient</option>
+        <option value="instrumental" name="instrumental">Instrumental</option>
+        <option value="interview" name="interview">Interview</option>
+        <option value="music" name="music">Music</option>
+        <option value="narration" name="narration">Narration</option>
+        <option value="nature" name="nature">Nature</option>
+        <option value="noise" name="noise">Noise</option>
+        <option value="podcast" name="podcast">Podcast</option>
+        <option value="sound-effect" name="sound-effect">Sound Effect</option>
+        <option value="speech" name="speech">Speech</option>
+        <option value="vocal" name="vocal">Vocal</option>
+    </select><br><br>
+    <input type="file" name="file" required><br><br>
+    <button type="submit">Upload</button>
+</form>
