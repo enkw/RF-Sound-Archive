@@ -4,7 +4,9 @@
 The Rhythm Nation application is a platform where music lovers from around the world can explore a vast collection of royalty-free music for their projects. Users can effortlessly peruse through various music genres, sample tracks (listen to previews), and download high-quality music for their content creation needs. Additionally, musicians are also empowered to showcase their own original royalty-free compositions, fostering a vibrant community of music enthusiasts and creators.
 
 ## Screenshots of Application
-- ![Rhythm Nation Screenshot]
+- ![Screenshot_1](./public/images/Screenshot_(1).png)
+- ![Screenshot_2](./public/images/Screenshot_(2).png)
+- ![Screenshot_3](./public/images/Screenshot_(3).png)
 
 ## Link to Deployed Application
 https://rf-sound-archive-1.onrender.com/
