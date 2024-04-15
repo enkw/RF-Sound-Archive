@@ -15,7 +15,7 @@ const seedDatabase = async () => {
   for (const audio of audioData) {
     await Audio.create({
       ...audio,
-      user_id: users[Math.floor(Math.random() * users.length)].id,
+      user_id: users.id,
     });
   }
 
