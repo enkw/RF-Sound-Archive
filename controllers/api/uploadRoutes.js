@@ -14,7 +14,6 @@ const s3 = new AWS.S3({
     secretAccessKey: process.env.AWS_SECRET_ACCESS_KEY
 });
 
-const app = express();
 // app.use(express.json());
 // app.use(express.urlencoded({ extended: true }));
 
@@ -52,7 +51,7 @@ const pool = new Pool({
 // });
 
 // POST route for uploading a file to the S3 server
-app.post('/upload', upload.single('file'), async (req, res) => {
+router.post('/upload', upload.single('file'), async (req, res) => {
     const file = req.file;
 
     // Generates a unique filename for each upload to prevent duplicates
