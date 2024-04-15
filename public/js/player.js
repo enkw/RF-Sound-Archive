@@ -85,19 +85,13 @@ function random_bg_color() {
 
 // search function
 function searchTracks() {
-    // Get the search query from the input field
     let searchQuery = document.getElementById('search-bar').value.trim();
-  
-    // Check if the search query is not empty
     if (searchQuery) {
-      // Redirect to the results.html page with the search query appended as a URL parameter
-      window.location.href = `results.html?search=${encodeURIComponent(searchQuery)}`;
+        window.location.href = `/search?search=${encodeURIComponent(searchQuery)}`;
     } else {
-      // Optionally alert the user that the search query cannot be empty
-      alert("Please enter a search term.");
+        alert("Please enter a search term.");
     }
-  }
-
+}
 
 // Function to reset all values to their default
 function resetValues() {

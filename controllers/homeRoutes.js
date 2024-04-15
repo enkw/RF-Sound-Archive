@@ -27,6 +27,31 @@ router.get('/', async (req, res) => {
   }
 });
 
+router.get('/search', async (req, res) => {
+  const searchQuery = req.query.search;
+  if (searchQuery) {
+    // Perform the search using the search query
+    const searchResults = await Audio.findAll({
+      where: {
+        // Your search condition here
+      },
+      include: [{ model: User, attributes: ['name'] }],
+    });
+
+    const audiofiles = searchResults.map((audio) => audio.get({ plain: true }));
+
+    // Render the 'results' template with the search results
+    res.render('results', { 
+      audiofiles,
+      searchQuery,
+      logged_in: req.session.logged_in
+    });
+  } else {
+    // Redirect back to homepage or render an error message
+    res.redirect('/');
+  }
+});
+
 router.get('/audio/:id', async (req, res) => {
   try {
     const audioData = await Audio.findByPk(req.params.id, {
