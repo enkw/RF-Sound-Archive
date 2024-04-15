@@ -1,0 +1,27 @@
+<div class="container">
+    <!-- Filter sidebar -->
+    <aside class="filter-sidebar">
+        <h2>Filters</h2>
+        <div class="filter-category">
+            <h3>Media Type</h3>
+            <input type="checkbox" id="filter-music" name="media-type" value="music" onchange="updateResults();">
+            <label for="filter-music">Music</label><br>
+            <input type="checkbox" id="filter-sound-effect" name="media-type" value="sound effect"
+                onchange="updateResults();">
+            <label for="filter-sound-effect">Sound Effects</label>
+        </div>
+    </aside>
+
+    <!-- Main content -->
+    <main class="results-main">
+        <h1>RESULTS</h1>
+        <div id="results-container">
+            <div id="search-results"></div>
+            <audio id="audio-player" controls style="width: 100%; margin-top: 20px; display: none;">
+                Your browser does not support the audio element.
+            </audio>
+        </div>
+    </main>
+</div>
+
+ <script src="/js/results.js"></script>
