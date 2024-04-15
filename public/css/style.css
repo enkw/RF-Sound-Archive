@@ -32,7 +32,7 @@ body, html {
   background-size: cover; /* Cover the entire banner area */
   background-position: center; /* Center the image */
   text-align: center; /* Center the text inside the banner */
-  padding: 40px 0px; /* Top and bottom padding */
+  padding: 1%; /* Top and bottom padding */
   width: 100%; /* Banner width to cover the full container width */
   position: relative; /* Relative positioning to keep flow in document */
 }
@@ -212,51 +212,60 @@ footer.navbar {
   box-shadow: 0px -4px 6px rgba(0,0,0,.1);
 }
 
-/* Style for "Browse by Vibe" Section */
 .browse-by-vibe {
   text-align: center;
   padding: 100px 0;
-  /* background-color: #f2f2f2; Light grey background for the section */
-  margin-top: 50px; /* Add some space between the player and the section */
+  margin-top: 50px;
 }
 
 .browse-by-vibe h2 {
-  margin-bottom: 20px; /* Space between title and boxes */
+  margin-bottom: 20px;
 }
 
 .vibe-container {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px; /* Space between boxes */
-  width: calc((150px * 4) + (10px * 3)); /* Width for 4 boxes plus 3 gaps */
-  margin: auto; /* Center the container */
+  gap: 10px;
+  width: calc((150px * 4) + (10px * 3));
+  margin: auto;
 }
 
 .vibe-box {
-  flex: 0 1 150px; /* Boxes are 150px wide but can shrink a bit */
-  height: 100px; /* Height of the boxes */
+  position: relative; /* Set position to relative for positioning vibe-name */
+  flex: 0 1 150px;
+  height: 100px;
   display: flex;
   justify-content: center;
   align-items: center;
-  color: white; /* Text color */
-  border-radius: 5px; /* Rounded corners */
-  font-size: 18px; /* Font size of the box content */
-  margin-bottom: 10px; /* Add bottom margin to ensure gap between rows */
+  color: white;
+  border-radius: 5px;
+  font-size: 18px;
+  margin-bottom: 10px;
+  overflow: hidden; /* Ensure no overflow from the box */
 }
 
-/* Individual box colors */
-#vibe-chill { background-color: #85C1E9; }
-#vibe-noise { background-color: #ff8ae8; }
-#vibe-energetic { background-color: #E74C3C; }
-#vibe-melancholic { background-color: #5D6D7E; }
-#vibe-upbeat { background-color: #F4D03F; }
-#vibe-goblin { background-color: #71ff04; }
-#vibe-feelings { background-color: #26f9f6; }
-#vibe-romance { background-color: #ff0040; }
+.vibe-box img {
+  width: 100%;
+  height: auto; /* Adjust the height to maintain aspect ratio */
+}
+
+.vibe-name {
+  position: absolute;
+  top: 0; /* Position it at the top of the .vibe-box */
+  left: 0;
+  width: 100%;
+  background: rgba(0, 0, 0, 0.5);
+  color: white;
+  text-align: center;
+  padding: 5px 0;
+  font-size: 14px; /* Adjust font size as necessary */
+ 
+}
 
 footer .container-fluid {
   display: flex;
   justify-content: space-between; 
+  z-index: 1;
 }
 
